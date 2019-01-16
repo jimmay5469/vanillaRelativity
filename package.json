@@ -6,10 +6,12 @@
   "dependencies": {
     "lite-server": "^2.4.0",
     "moment": "^2.23.0",
-    "moment-duration-format": "^2.2.2"
+    "moment-duration-format": "^2.2.2",
+    "parcel-bundler": "^1.11.0"
   },
   "devDependencies": {},
   "scripts": {
+    "watch": "parcel index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
