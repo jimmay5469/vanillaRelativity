@@ -1,18 +1,14 @@
 let moment = require('moment');
 let momentDurationFormatSetup = require("moment-duration-format");
 
-let lastTime = Date.now();
-let rTime = 0;
-let gamma = 1;
-let time = 0;
+let start = Date.now();
 
 document.addEventListener('DOMContentLoaded', () => {
   const sliderNode = document.querySelector('#speedSlider');
-  
+
   const computeGamma = () => {
-    const percentOfSpeedOfLight = sliderNode.value  
-    let gamma = 1/Math.sqrt(1 - Math.pow(percentOfSpeedOfLight,2))
-    return gamma
+    const percentOfSpeedOfLight = sliderNode.value
+    return 1 / Math.sqrt(1 - Math.pow(percentOfSpeedOfLight, 2))
   }
 
   const relativeTimeNode = document.querySelector('#relativeTime');
@@ -21,25 +17,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const resetButton = document.querySelector('.reset-button');
 
   resetButton.addEventListener("click", () => {
-    rTime = 0,
-    time = 0;
+    start = Date.now();
     renderTimers(0,0);
   })
 
   const renderTimers = (rTime, time) => {
-    relativeTimeNode.innerText = moment.duration(rTime).format('mm:ss');
-    stationaryTimeNode.innerText = moment.duration(time).format('mm:ss'); 
+    relativeTimeNode.innerText = moment.duration(rTime).format('mm:ss.SSS');
+    stationaryTimeNode.innerText = moment.duration(time).format('mm:ss.SSS');
     descriptionParagraph.innerText = sliderNode.value;
   };
 
   const tick = () => {
     const now = Date.now();
-    const sinceLast = now - lastTime;
-    gamma = computeGamma()
-    time += sinceLast;
-    rTime += (sinceLast / gamma);
-    renderTimers( rTime, time);
-    lastTime = now;
+    const sinceStart = now - start;
+    const gamma = computeGamma()
+    const time = sinceStart;
+    const rTime = (sinceStart / gamma);
+    renderTimers(rTime, time);
   };
 
   setInterval(tick, 100);
