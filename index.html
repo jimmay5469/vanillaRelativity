@@ -5,22 +5,41 @@
   <body>
     <script src="./index.js"></script>
     <div class="container">
-      <input id="speedSlider" type="range" value="0" step="0.1" min="0" max="0.9" />     
-      <label for="speedSlider">
-        <p>Speed of traveller expressed as fraction of the speed of light:</p>
-        <p id="sliderDescription"></p>
-      </label>
-      <table>
-        <tr>
-          <td class="clock-label">Stationary Time:</td>
-          <td id="stationaryTime" class="clock-value"></td>
-        </tr>
-        <tr>
-          <td class="clock-label">Relativistic Time:</td>
-          <td id="relativeTime" class="clock-value"></td>
-        </tr>
-      </table>
-      <button class="reset-button">Reset Timers</button>
+      <input class="speedSlider" type="range" value="0" step="0.1" min="0" max="0.9" />
+      <div class="container1">
+        <label for="speedSlider">
+          <p>Speed of traveller expressed as fraction of the speed of light:</p>
+          <p class="sliderDescription"></p>
+        </label>
+        <table>
+          <tr>
+            <td class="clock-label">Stationary Time:</td>
+            <td class="stationaryTime" class="clock-value"></td>
+          </tr>
+          <tr>
+            <td class="clock-label">Relativistic Time:</td>
+            <td class="relativeTime" class="clock-value"></td>
+          </tr>
+        </table>
+        <button class="reset-button">Reset Timers</button>
+      </div>
+      <div class="container2">
+        <label for="speedSlider">
+          <p>Speed of traveller expressed as fraction of the speed of light:</p>
+          <p class="sliderDescription"></p>
+        </label>
+        <table>
+          <tr>
+            <td class="clock-label">Stationary Time:</td>
+            <td class="stationaryTime" class="clock-value"></td>
+          </tr>
+          <tr>
+            <td class="clock-label">Relativistic Time:</td>
+            <td class="relativeTime" class="clock-value"></td>
+          </tr>
+        </table>
+        <button class="reset-button">Reset Timers</button>
+      </div>
     </div>
   </body>
 </html>
